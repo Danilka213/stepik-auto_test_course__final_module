@@ -3,6 +3,7 @@ from selenium import webdriver
 import time
 import math
 from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoAlertPresentException
    
 class BasePage(): 
     def __init__(self, browser, url, timeout=10):
@@ -13,10 +14,36 @@ class BasePage():
     def open(self):
         self.browser.get(self.url)
        
-    def is_element_present(self, how, what):
+    def is_element_present(self, how,  what):
         try:
             self.browser.find_element(how, what)
-        except (NoSuchElementException):
+        except NoSuchElementException:
             return False
         return True
         
+    def search_element(self, how,  what):
+        try:
+            element_search = self.browser.find_element(how, what)
+        except NoSuchElementException:
+            return "Search element is not found"
+        return element_search
+        
+    def solve_quiz_and_get_code(self):
+        alert = self.browser.switch_to.alert
+        x = alert.text.split(" ")[2]
+        answer = str(math.log(abs((12 * math.sin(float(x))))))
+        alert.send_keys(answer)
+        alert.accept()
+        try:
+            alert = self.browser.switch_to.alert
+            alert_text = alert.text
+            print(f"Your code: {alert_text}")
+            alert.accept()
+            time.sleep(2)
+        except NoAlertPresentException:
+            print("No second alert presented")
+
+#alertinner 
+#[.alert.alert-safe.alert-noicon.alert-info.fade.in<.alertinner<p<strong]
+#[strong.text='9,99']
+#[.alert.alert-safe.alert-noicon.alert-info.fade+.alertinner+p+strong]
