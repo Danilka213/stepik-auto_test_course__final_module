@@ -19,3 +19,11 @@ class ProductPageLocators():
     NAME_PRODUCT = (By.CSS_SELECTOR, ".col-sm-6.product_main h1")
     PRICE_PRODUCT_IN_BACKET = (By.CSS_SELECTOR, ".alert.alert-safe.alert-noicon.alert-info.fade .alertinner p strong")
     PRICE_PRODUCT = (By.CSS_SELECTOR, ".col-sm-6.product_main .price_color")
+    
+class BasketPageLocators():
+    BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-group a.btn.btn-default")
+    MESSAGE_BASKET_IT_EMPTY = (By.CSS_SELECTOR, "#content_inner p")
+    CONTAINER_PRODUCTS_IN_THE_BASKET = (By.CSS_SELECTOR, ".basket-items")
+    BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-group a.btn.btn-default")
+    
+    
