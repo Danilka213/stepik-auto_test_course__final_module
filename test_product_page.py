@@ -12,8 +12,6 @@ import pytest
 class TestUserAddToBasketFromProductPage():
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
-        #self.product = ProductFactory(title = "Best book created by robot")
-        #self.link = self.product.link
         link = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"
         page = LoginPage(browser, link)
         page.open()
