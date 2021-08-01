@@ -75,7 +75,15 @@ class BasePage():
         link.click()
         #alert = self.browser.switch_to.alert
         #alert.accept()
-        
+     
+    def enter_value_in_input(self, how, what, message):
+        input_element = self.search_element(how, what)
+        input_element.send_keys(message)
+     
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"  
      
+     
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"

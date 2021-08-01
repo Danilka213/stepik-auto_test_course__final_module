@@ -20,7 +20,5 @@ class BasketPage(BasePage):
     def should_be_visible_message_that_basket_is_empty(self):
         assert self.is_element_present(*BasketPageLocators.MESSAGE_BASKET_IT_EMPTY), "is not message that basket is empty"
         
-    #def should_be_is_not_visible_message_that_basket_is_empty(self):
-        #assert self.is_element_present(*BasketPageLocators.MESSAGE_BASKET_IT_EMPTY) is not True, "Visible message that basket is empty"
        
        

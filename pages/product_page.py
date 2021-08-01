@@ -44,6 +44,10 @@ class ProductPage(BasePage):
         
     def should_not_be_success_message(self, how, what):
         assert self.is_not_element_present(how, what ), \
-        "Success message is presented, but should not be"
+        "Success message is presented, but should not be"       
         
+    def should_be_not_visible_message_add_product_in_backet(self, how, what):
+        assert self.is_not_element_present(how, what), "Message add product in backet provided on the start page"
         
+    def should_be_that_disappears_message_add_product_in_backet(self, how, what):
+        assert self.is_disappeared(how, what), "Message add product is not disappear "  
